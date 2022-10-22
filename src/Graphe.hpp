@@ -1,6 +1,11 @@
-#include "Sommet.cpp"
-#include "Arete.cpp"
+#ifndef GRAPHE
+#define GRAPHE
+
+#include "Sommet.hpp"
+#include "Arete.hpp"
+
 #include <list>
+using namespace std;
 
 class Graphe{
     private:
@@ -18,3 +23,5 @@ class Graphe{
         void kruskal(); // TODO à la fin
         // Graphe(Graphe g);
 };
+
+#endif

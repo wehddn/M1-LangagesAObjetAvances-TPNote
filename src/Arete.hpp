@@ -1,3 +1,8 @@
+#ifndef ARETE
+#define ARETE
+
+#include "Sommet.hpp"
+
 #include <string>
 using namespace std;
 
@@ -15,3 +20,4 @@ class Arete{
         
 };
 
+#endif

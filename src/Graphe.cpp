@@ -1,5 +1,8 @@
 #include "Graphe.hpp"
 
+#include "Sommet.hpp"
+#include "Arete.hpp"
+
 Graphe::Graphe(list<Sommet> ls,list<Arete> la):sommets{ls}, aretes{la} {}
 
 void Graphe::ajoute_sommet(Sommet s){

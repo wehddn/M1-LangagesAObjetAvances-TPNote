@@ -1,6 +1,8 @@
 #include <string>
 #include "GC.hpp"
-#include "Graphe.cpp"
+#include "Graphe.hpp"
+#include "Sommet.hpp"
+#include "Arete.hpp"
 
 using namespace std;
 //TODO

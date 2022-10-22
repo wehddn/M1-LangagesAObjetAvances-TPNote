@@ -1,6 +1,8 @@
+#ifndef SOMMET
+#define SOMMET
+
 #include <string>
 #include <iostream>
-
 using namespace std;
 
 class Sommet{
@@ -13,3 +15,4 @@ class Sommet{
 
 };
 
+#endif
