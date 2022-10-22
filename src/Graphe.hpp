@@ -12,7 +12,7 @@ class Graphe{
         vector<Sommet*> sommets;
         vector<Arete*> aretes;
     public:
-        Graphe(vector<Sommet> ls, vector<Arete> la);
+        Graphe(vector<Sommet>& ls, vector<Arete>& la);
         void ajoute_sommet(Sommet s);
         void ajoute_sommet(string etiquette);
         void ajoute_arete(Arete a);

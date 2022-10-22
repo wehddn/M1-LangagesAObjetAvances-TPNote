@@ -15,9 +15,9 @@ int main(){
     vector<Arete> la {a1};
     Graphe g1{ls, la};
 
-//    cout << s1 <<"\n";
-//    cout << s2 <<"\n";
-//    cout << a1 <<"\n";
+    cout << s1 <<"\n";
+    cout << s2 <<"\n";
+    cout << a1 <<"\n";
     cout << g1 <<"\n";
     return 0;
 }

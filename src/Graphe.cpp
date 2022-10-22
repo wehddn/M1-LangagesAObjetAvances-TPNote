@@ -5,16 +5,14 @@
 
 #include <algorithm>
 
-Graphe::Graphe(vector<Sommet> vs, vector<Arete> va){
-    std::transform(
-    vs.begin(), vs.end(),
-    std::back_inserter(sommets), 
-    [](Sommet &p) { return &p; });
+Graphe::Graphe(vector<Sommet>& vs, vector<Arete>& va){
+    for(auto &s : vs ){;
+        sommets.push_back(&s);
+    }
     
-    std::transform(
-    va.begin(), va.end(),
-    std::back_inserter(aretes), 
-    [](Arete &p) { return &p; });
+    for(auto &a : va ){;
+        aretes.push_back(&a);
+    }
 }
 
 void Graphe::ajoute_sommet(Sommet s){
@@ -71,7 +69,14 @@ void Graphe::kruskal(){
 
 std::ostream& operator<< (std::ostream &out, Graphe &graphe)
 {
+    string s_str, a_str;
+    for(auto &s : graphe.getSommets() ){
+        s_str = s_str + s.getEtiquette() + " ";
+    }
+    for(auto &a : graphe.getAretes() ){;
+        a_str = a_str + a.getS1().getEtiquette() + " - " + a.getS2().getEtiquette() + ", " + to_string(a.getPoids()); 
+    }
 
-    out << "graphe\n" ; 
+    out << s_str << "\n" << a_str; 
     return out;
 }
