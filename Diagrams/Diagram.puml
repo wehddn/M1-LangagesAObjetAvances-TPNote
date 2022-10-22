@@ -1,0 +1,37 @@
+@startuml diagram
+
+class Graphe{
+    -list<sommet>
+    -list<arete>
+    +graphe(list<sommet>, list<arete>)
+    +graphe(graphe)
+    +ajoute_sommet(sommet s)
+    +ajoute_sommet(string etiquette)
+    +ajoute_arete(arete a)
+    +ajoute_arete(sommet s1, sommet s2, int poids)
+    +ajoute_arete(string etiquette1, string etiquette2, int poids)
+    +int poids()
+    +symetrise()
+    +kruskal()
+}
+
+class Sommet{
+    -string etiquette 
+    +sommet(etiquette e)
+    +sommet(sommet)
+}
+
+class Arete{
+    -int poids
+    -sommet s1
+    -sommet s2
+    +arete(etiquette e1, etiquette e2, poids p)  
+    +arete(sommet s1, sommet s2, poids p)
+    +arete(arete)
+}
+
+class GC{
+
+}
+
+@enduml
