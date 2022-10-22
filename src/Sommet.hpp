@@ -8,8 +8,8 @@ class Sommet{
         string etiquette;
     public:
         Sommet(string e);
+        string getEtiquette();
         //Sommet(Sommet e); Je sais pas comment faire
 
 };
 
-Sommet::Sommet(string e):etiquette{e} {}

@@ -1,6 +1,6 @@
 #include <string>
 #include "GC.hpp"
-#include "Graphe.hpp"
+#include "Graphe.cpp"
 
 using namespace std;
 //TODO

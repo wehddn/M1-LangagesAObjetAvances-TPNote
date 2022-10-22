@@ -8,9 +8,10 @@ class Arete{
     public:
         Arete(string s1,string s2, int p);
         Arete(Sommet s1, Sommet s2, int p);
+        Sommet getS1();
+        Sommet getS2();
+        int getPoids();
         // Arete(Arete a);
         
 };
 
-Arete::Arete(string s1,string s2,int p):sommet1{s1}, sommet2{s2}, poids{p} {}
-Arete::Arete(Sommet s1,Sommet s2,int p):sommet1{s1}, sommet2{s2}, poids{p} {}
