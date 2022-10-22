@@ -15,4 +15,7 @@ class Sommet{
 
 };
 
+std::ostream& operator<< (std::ostream &out, Sommet &sommet);
+
+
 #endif
