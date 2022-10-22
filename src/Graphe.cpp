@@ -5,14 +5,14 @@
 
 #include <algorithm>
 
-Graphe::Graphe(list<Sommet> ls, list<Arete> la){
+Graphe::Graphe(vector<Sommet> vs, vector<Arete> va){
     std::transform(
-    ls.begin(), ls.end(),
+    vs.begin(), vs.end(),
     std::back_inserter(sommets), 
     [](Sommet &p) { return &p; });
     
     std::transform(
-    la.begin(), la.end(),
+    va.begin(), va.end(),
     std::back_inserter(aretes), 
     [](Arete &p) { return &p; });
 }
@@ -34,18 +34,18 @@ void Graphe::ajoute_arete(string etiquette1, string etiquette2, int poids){
     aretes.push_back(new Arete(etiquette1,etiquette2,poids));
 }
 
-list<Sommet> Graphe::getSommets(){
-    list<Sommet> ls;
+vector<Sommet> Graphe::getSommets(){
+    vector<Sommet> vs;
     std::transform(
     sommets.begin(), sommets.end(),
-    std::back_inserter(ls), 
+    std::back_inserter(vs), 
     [](Sommet* p) { return *p; });
     
-    return ls;
+    return vs;
 }
 
-list<Arete> Graphe::getAretes(){
-    list<Arete> la;
+vector<Arete> Graphe::getAretes(){
+    vector<Arete> la;
     std::transform(
     aretes.begin(), aretes.end(),
     std::back_inserter(la), 
@@ -57,7 +57,7 @@ list<Arete> Graphe::getAretes(){
 /*
 int Graphe::poids(){
     int cpt = 0;
-    for(list<Arete>::iterator it = aretes.begin(); it != aretes.end(); it++){
+    for(vector<Arete>::iterator it = aretes.begin(); it != aretes.end(); it++){
 		cpt+= it->getPoids();
 	}
     return cpt;
@@ -72,6 +72,6 @@ void Graphe::kruskal(){
 std::ostream& operator<< (std::ostream &out, Graphe &graphe)
 {
 
-    out << "graphe" ; 
+    out << "graphe\n" ; 
     return out;
 }

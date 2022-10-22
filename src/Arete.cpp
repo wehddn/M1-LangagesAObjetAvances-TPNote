@@ -25,8 +25,6 @@ int Arete::getPoids(){
 
 std::ostream& operator<< (std::ostream &out, Arete &arete)
 {
-    Sommet s1 = arete.getS1();
-    Sommet s2 = arete.getS2();
-    out << s1 << " - " << s2 << ", "<< arete.getPoids(); 
+    out << arete.getS1().getEtiquette() << " - " << arete.getS2().getEtiquette() << ", "<< arete.getPoids(); 
     return out;
 }
