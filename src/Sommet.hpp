@@ -14,6 +14,7 @@ class Sommet{
         //Sommet(Sommet e); Je sais pas comment faire
 
 };
+bool operator==(Sommet lhs, Sommet rhs);
 
 std::ostream& operator<< (std::ostream &out, Sommet &sommet);
 
