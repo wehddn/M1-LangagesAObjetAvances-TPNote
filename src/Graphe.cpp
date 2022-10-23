@@ -15,14 +15,14 @@ Graphe::Graphe(vector<Sommet>& vs, vector<Arete>& va){
     }
 }
 
-void Graphe::ajoute_sommet(Sommet s){
+void Graphe::ajoute_sommet(Sommet& s){
     sommets.push_back(&s); // ajoute à la fin
 }
 
 void Graphe::ajoute_sommet(string etiquette){
     sommets.push_back(new Sommet(etiquette));
 }
-void Graphe::ajoute_arete(Arete a){
+void Graphe::ajoute_arete(Arete& a){
     aretes.push_back(&a);
 }
 void Graphe::ajoute_arete(Sommet s1, Sommet s2, int poids){
@@ -59,8 +59,33 @@ int Graphe::poids(){
 	}
     return cpt;
 }
+
+// à régler segmentation fault quand il y a plus d'une arete dans le graphe.
 void Graphe::symetrise(){
-    // TODO
+    for(auto &it : aretes ){
+        cout << "ici" << "\n";
+        Sommet s1 = (*it).getS1();
+        Sommet s2 = (*it).getS2();
+        int poids = (*it).getPoids();
+        bool flag = false;
+        for(auto &it2 : aretes){
+            cout << "cc" << "\n";
+            Sommet ss1 = (*it2).getS1();
+            Sommet ss2 = (*it2).getS2();
+            int poids2 = (*it2).getPoids();
+            if(s1 == ss2 and s2 == ss1 and poids == poids2){
+                cout << s1 << " " << ss2 << " " << s2 << " " << ss1 << "\n";
+                flag = true;
+            }
+            
+        }
+        if(!flag){
+            cout << "ajoute" << "\n";
+            Arete ar{s2.getEtiquette(),s1.getEtiquette(),poids};
+            this->ajoute_arete(ar);
+        }
+        
+    }   
 }
 void Graphe::kruskal(){
     // TODO 

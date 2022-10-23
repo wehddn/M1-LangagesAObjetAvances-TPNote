@@ -23,6 +23,8 @@ int Arete::getPoids(){
     return poids;
 }
 
+
+
 std::ostream& operator<< (std::ostream &out, Arete &arete)
 {
     out << arete.getS1().getEtiquette() << " - " << arete.getS2().getEtiquette() << ", "<< arete.getPoids(); 
