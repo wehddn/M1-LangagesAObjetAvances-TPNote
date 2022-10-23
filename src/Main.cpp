@@ -17,7 +17,7 @@ int main(){
     Arete a2{s3,s4,3};
     Arete a3{"s3", "s4", 2};
     
-    vector<Sommet> ls {s1, s2, s3, s4};
+    vector<Sommet> ls {s1, s2, s3, s4, s1};
     vector<Arete> la {a1, a11, a2};
 
     Graphe g1{ls, la};
@@ -42,8 +42,8 @@ int main(){
     cout << "test ajoute_sommet : " << g1 <<"\n";
     g1.ajoute_sommet("s5");
     cout << "test ajoute_sommet : " << g1 <<"\n";
-    g1.symetrise();
-    cout << "test symetrise : " << g1 <<"\n";
+    //g1.symetrise();
+    //cout << "test symetrise : " << g1 <<"\n";
 
     GarbageCollector::test();
 

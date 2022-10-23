@@ -5,12 +5,13 @@
 #include "Arete.hpp"
 
 #include <vector>
+#include <set>
 using namespace std;
 
 class Graphe{
     private:
-        vector<Sommet*> sommets;
-        vector<Arete*> aretes;
+        set<Sommet*> sommets;
+        set<Arete*> aretes;
     public:
         Graphe(vector<Sommet>& ls, vector<Arete>& la);
         void ajoute_sommet(Sommet& s);

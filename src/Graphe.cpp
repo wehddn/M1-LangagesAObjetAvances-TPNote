@@ -10,31 +10,42 @@ Graphe::Graphe(vector<Sommet>& vs, vector<Arete>& va){
     for(auto &s : vs ){
         Sommet* sp = &s;
         GarbageCollector::create(sp);
-        sommets.push_back(sp);
+        sommets.insert(sp);
     }
+
     
     for(auto &a : va ){
         Arete* sa = &a;
         GarbageCollector::create(sa);
-        aretes.push_back(sa);
+        aretes.insert(sa);
     }
 }
 
 void Graphe::ajoute_sommet(Sommet& s){
-    sommets.push_back(&s); // ajoute à la fin
+    Sommet* sp = &s;
+    GarbageCollector::create(sp);
+    sommets.insert(sp); // ajoute à la fin
 }
 
 void Graphe::ajoute_sommet(string etiquette){
-    sommets.push_back(new Sommet(etiquette));
+    Sommet* sp = new Sommet(etiquette);
+    GarbageCollector::create(sp);
+    sommets.insert(sp);
 }
 void Graphe::ajoute_arete(Arete& a){
-    aretes.push_back(&a);
+    Arete* sa = &a;
+    GarbageCollector::create(sa);
+    aretes.insert(sa);
 }
 void Graphe::ajoute_arete(Sommet s1, Sommet s2, int poids){
-    aretes.push_back(new Arete(s1,s2,poids));
+    Arete* sa = new Arete(s1,s2,poids);
+    GarbageCollector::create(sa);
+    aretes.insert(sa);
 }
 void Graphe::ajoute_arete(string etiquette1, string etiquette2, int poids){
-    aretes.push_back(new Arete(etiquette1,etiquette2,poids));
+    Arete* sa = new Arete(etiquette1,etiquette2,poids);
+    GarbageCollector::create(sa);
+    aretes.insert(sa);
 }
 
 vector<Sommet> Graphe::getSommets(){
@@ -59,7 +70,7 @@ vector<Arete> Graphe::getAretes(){
 
 int Graphe::poids(){
     int cpt = 0;
-    for(vector<Arete*>::iterator it = aretes.begin(); it != aretes.end(); it++){
+    for(set<Arete*>::iterator it = aretes.begin(); it != aretes.end(); it++){
 		cpt+= (*it)->getPoids();
 	}
     return cpt;
