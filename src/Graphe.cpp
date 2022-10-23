@@ -52,14 +52,13 @@ vector<Arete> Graphe::getAretes(){
     return la;
 }
 
-/*
 int Graphe::poids(){
     int cpt = 0;
-    for(vector<Arete>::iterator it = aretes.begin(); it != aretes.end(); it++){
-		cpt+= it->getPoids();
+    for(vector<Arete*>::iterator it = aretes.begin(); it != aretes.end(); it++){
+		cpt+= (*it)->getPoids();
 	}
     return cpt;
-}*/
+}
 void Graphe::symetrise(){
     // TODO
 }
@@ -74,7 +73,7 @@ std::ostream& operator<< (std::ostream &out, Graphe &graphe)
         s_str = s_str + s.getEtiquette() + " ";
     }
     for(auto &a : graphe.getAretes() ){;
-        a_str = a_str + a.getS1().getEtiquette() + " - " + a.getS2().getEtiquette() + ", " + to_string(a.getPoids()); 
+        a_str = a_str + a.getS1().getEtiquette() + " - " + a.getS2().getEtiquette() + ", " + to_string(a.getPoids()) + "; "; 
     }
 
     out << s_str << "\n" << a_str; 
