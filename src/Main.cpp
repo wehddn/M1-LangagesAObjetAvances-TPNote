@@ -1,5 +1,5 @@
 #include <string>
-#include "GC.hpp"
+#include "GarbageCollector.hpp"
 #include "Graphe.hpp"
 #include "Sommet.hpp"
 #include "Arete.hpp"
@@ -9,15 +9,37 @@ using namespace std;
 int main(){
     Sommet s1{"s1"};
     Sommet s2{"s2"};
+    Sommet s4("s4");
     Arete a1{s1, s2, 1};
+    Arete a11{s1, s2, 1};
+    Arete a2{"s3", "s4", 2};
     
     vector<Sommet> ls {s1, s2};
-    vector<Arete> la {a1};
+    vector<Arete> la {a1, a11};
     Graphe g1{ls, la};
 
-    cout << s1 <<"\n";
-    cout << s2 <<"\n";
-    cout << a1 <<"\n";
-    cout << g1 <<"\n";
+    cout << "\n";
+    cout << "Test sommets : \n";
+    cout << "test << : " << s1 <<"\n";
+    cout << "test getEtiquette : " <<s2.getEtiquette() <<"\n";
+    cout << "\n";
+
+    cout << "Test aretes : \n";
+    cout << "test << : " << a1 <<"\n";
+    cout << "test getS1 : " << a2.getS1().getEtiquette() <<"\n";
+    cout << "test getPoids : " << a2.getPoids() << "\n"; 
+    cout << "\n";
+
+    cout << "Test graphe : \n";
+    cout << "test << : " << g1 <<"\n";
+    cout << "test poids : " << g1.poids() << "\n";
+    g1.ajoute_sommet(s4);
+    cout << "test ajoute_sommet : " << g1 <<"\n";
+    g1.ajoute_sommet("s5");
+    cout << "test ajoute_sommet : " << g1 <<"\n";
+
+    GarbageCollector::test();
+
+
     return 0;
 }

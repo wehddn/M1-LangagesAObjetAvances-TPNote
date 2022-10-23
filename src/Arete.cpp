@@ -1,13 +1,18 @@
 #include "Arete.hpp"
+#include "GarbageCollector.hpp"
 
 Arete::Arete(string s1,string s2,int p){
     sommet1 = new Sommet(s1);
     sommet2 = new Sommet(s2);
     poids = p;
 }
-Arete::Arete(Sommet& s1, Sommet& s2,int p){
-    sommet1 = &s1;
-    sommet2 = &s2;
+Arete::Arete(Sommet& s1, Sommet& s2, int p){
+    Sommet* sp1 = &s1; 
+    Sommet* sp2 = &s2;
+    GarbageCollector::create(sp1);
+    GarbageCollector::create(sp2);
+    sommet1 = sp1;
+    sommet2 = sp2;
     poids = p;
 }
 

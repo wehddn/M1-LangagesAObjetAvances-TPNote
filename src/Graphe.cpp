@@ -2,27 +2,32 @@
 
 #include "Sommet.hpp"
 #include "Arete.hpp"
+#include "GarbageCollector.hpp"
 
 #include <algorithm>
 
 Graphe::Graphe(vector<Sommet>& vs, vector<Arete>& va){
-    for(auto &s : vs ){;
-        sommets.push_back(&s);
+    for(auto &s : vs ){
+        Sommet* sp = &s;
+        GarbageCollector::create(sp);
+        sommets.push_back(sp);
     }
     
-    for(auto &a : va ){;
-        aretes.push_back(&a);
+    for(auto &a : va ){
+        Arete* sa = &a;
+        GarbageCollector::create(sa);
+        aretes.push_back(sa);
     }
 }
 
-void Graphe::ajoute_sommet(Sommet s){
+void Graphe::ajoute_sommet(Sommet& s){
     sommets.push_back(&s); // ajoute à la fin
 }
 
 void Graphe::ajoute_sommet(string etiquette){
     sommets.push_back(new Sommet(etiquette));
 }
-void Graphe::ajoute_arete(Arete a){
+void Graphe::ajoute_arete(Arete& a){
     aretes.push_back(&a);
 }
 void Graphe::ajoute_arete(Sommet s1, Sommet s2, int poids){
@@ -75,7 +80,6 @@ std::ostream& operator<< (std::ostream &out, Graphe &graphe)
     for(auto &a : graphe.getAretes() ){;
         a_str = a_str + a.getS1().getEtiquette() + " - " + a.getS2().getEtiquette() + ", " + to_string(a.getPoids()) + "; "; 
     }
-
     out << s_str << "\n" << a_str; 
     return out;
 }
