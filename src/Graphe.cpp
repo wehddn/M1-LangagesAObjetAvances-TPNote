@@ -78,6 +78,7 @@ int Graphe::poids(){
 
 // à régler segmentation fault quand il y a plus d'une arete dans le graphe.
 void Graphe::symetrise(){
+    /*
     for(auto &it : aretes ){
         cout << "ici" << "\n";
         Sommet s1 = (*it).getS1();
@@ -102,6 +103,21 @@ void Graphe::symetrise(){
         }
         
     }   
+    */
+   set<Arete*> newAretes = aretes;
+   for(auto &it : newAretes){
+        Sommet s1 = (*it).getS1();
+        cout << s1 << "\n";
+        Sommet s2 = (*it).getS2();
+        cout << s2 << "\n";
+        int poids = (*it).getPoids();
+        cout << poids << "\n";
+        Arete sym{s2,s1,poids};
+        cout << sym << "\n";
+        this->ajoute_arete(sym);
+        cout << "test final \n";
+   }
+
 }
 void Graphe::kruskal(){
     // TODO 
