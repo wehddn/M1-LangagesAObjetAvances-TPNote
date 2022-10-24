@@ -10,9 +10,9 @@ class Sommet{
         string etiquette;
     public:
         Sommet(string e);
+        Sommet(const Sommet& s);
         ~Sommet();
         string getEtiquette();
-        //Sommet(Sommet e); Je sais pas comment faire
 
 };
 bool operator==(Sommet lhs, Sommet rhs);

@@ -21,6 +21,7 @@ class Graphe{
         set<Arete*> aretes;
     public:
         Graphe(vector<Sommet>& ls, vector<Arete>& la);
+        Graphe(const Graphe& g);
         void ajoute_sommet(Sommet& s);
         void ajoute_sommet(string etiquette);
         void ajoute_arete(Arete& a);

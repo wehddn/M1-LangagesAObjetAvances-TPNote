@@ -18,6 +18,10 @@ Graphe::Graphe(vector<Sommet>& vs, vector<Arete>& va){
     }
 }
 
+Graphe::Graphe(const Graphe& g){
+    *this = g;
+}
+
 void Graphe::ajoute_sommet(Sommet& s){
     Sommet* sp = &s;
     sommets.insert(sp);

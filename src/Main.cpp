@@ -5,13 +5,14 @@
 #include "Arete.hpp"
 
 using namespace std;
-//TODO
+
 int main(){
     GarbageCollector gc;
     Sommet s1{"s1"};
     Sommet s2{"s2"};
     Sommet s3{"s3"};
     Sommet s4{"s4"};
+    Sommet s1copy{s1};
     
     Arete a1{s1, s2, 1};
     Arete a11{s1, s2, 1};
@@ -28,6 +29,7 @@ int main(){
     cout << "\n";
     cout << "Test sommets : \n";
     cout << "test << : " << s1 <<"\n";
+    cout << "test << : " << s1copy <<"\n";
     cout << "test getEtiquette : " <<s2.getEtiquette() <<"\n";
     cout << "\n";
 

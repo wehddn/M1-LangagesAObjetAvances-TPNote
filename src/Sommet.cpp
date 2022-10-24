@@ -8,6 +8,10 @@ Sommet::Sommet(string e){
     GarbageCollector::create(this);
 }
 
+Sommet::Sommet(const Sommet& s){
+    *this = s;
+}
+
 string Sommet::getEtiquette(){
     return etiquette;
 }

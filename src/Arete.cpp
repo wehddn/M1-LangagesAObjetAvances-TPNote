@@ -18,6 +18,10 @@ Arete::Arete(Sommet& s1, Sommet& s2, int p){
     poids = p;
 }
 
+Arete::Arete(const Arete& a){
+    *this = a;
+}
+
 Arete::~Arete(){
     GarbageCollector::del(this);
 }
