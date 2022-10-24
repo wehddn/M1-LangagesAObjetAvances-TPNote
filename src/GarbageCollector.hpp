@@ -12,8 +12,9 @@ class GarbageCollector{
     private:
         static set<Sommet*> sommets;
         static set<Arete*> aretes;
-        GarbageCollector();
     public:
+        GarbageCollector();
+        ~GarbageCollector();
         static void create(Sommet* s);
         static void create(Arete* s);
         static void del(Sommet* s);

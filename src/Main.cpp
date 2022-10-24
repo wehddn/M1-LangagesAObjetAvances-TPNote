@@ -7,6 +7,7 @@
 using namespace std;
 //TODO
 int main(){
+    GarbageCollector gc;
     Sommet s1{"s1"};
     Sommet s2{"s2"};
     Sommet s3{"s3"};
@@ -47,6 +48,6 @@ int main(){
     cout << "test symetrise : " << g1 <<"\n";
 
     GarbageCollector::test();
-    
+
     return 0;
 }

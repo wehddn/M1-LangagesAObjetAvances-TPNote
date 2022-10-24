@@ -6,6 +6,17 @@
 set<Sommet*> GarbageCollector::sommets;
 set<Arete*> GarbageCollector::aretes;
 
+GarbageCollector::GarbageCollector(){};
+
+GarbageCollector::~GarbageCollector(){
+    for(auto &s : sommets ){
+        delete(s);
+    }
+    for(auto &a : aretes ){
+        delete(a);
+    }
+};
+
 void GarbageCollector::create(Sommet* s){
     sommets.insert(s);
 } 
