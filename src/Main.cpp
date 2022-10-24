@@ -5,13 +5,15 @@
 #include "Arete.hpp"
 
 using namespace std;
-
+//TODO verifier est-ce que des Sommet exists apres ajout d'un arret
+//TODO verifier GC
 int main(){
     GarbageCollector gc;
     Sommet s1{"s1"};
     Sommet s2{"s2"};
     Sommet s3{"s3"};
     Sommet s4{"s4"};
+    Sommet s5{"s5"};
     Sommet s1copy{s1};
     
     Arete a1{s1, s2, 1};
@@ -19,9 +21,10 @@ int main(){
 
     Arete a2{s3,s4,3};
     Arete a3{"s3", "s4", 2};
+    Arete a4{s1, s5, 2};
     
-    vector<Sommet> ls {s1, s2, s3, s4, s1};
-    vector<Arete> la {a1, a11, a2};
+    vector<Sommet*> ls {&s1, &s2, &s3, &s4, &s1};
+    vector<Arete*> la {&a1, &a11, &a2};
 
     Graphe g1{ls, la};
     
@@ -44,9 +47,9 @@ int main(){
     cout << "test poids : " << g1.poids() << "\n";
     g1.ajoute_sommet(s4);
     cout << "test ajoute_sommet : " << g1 <<"\n";
-    g1.ajoute_sommet("s5");
-    cout << "test ajoute_sommet : " << g1 <<"\n\n";
-    g1.symetrise();
+    g1.ajoute_arete("s1", "s5", 3);
+    cout << "test ajoute_arete : " << g1 <<"\n";
+    //g1.symetrise();
     cout << "test symetrise : " << g1 <<"\n";
 
     GarbageCollector::test();

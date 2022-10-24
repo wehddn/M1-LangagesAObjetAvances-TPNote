@@ -6,15 +6,13 @@
 
 #include <algorithm>
 
-Graphe::Graphe(vector<Sommet>& vs, vector<Arete>& va){
+Graphe::Graphe(vector<Sommet*>& vs, vector<Arete*>& va){
     for(auto &s : vs ){
-        Sommet* sp = &s;
-        sommets.insert(sp);
+        sommets.insert(s);
     }
 
     for(auto &a : va ){
-        Arete* sa = &a;
-        aretes.insert(sa);
+        aretes.insert(a);
     }
 }
 
@@ -34,17 +32,23 @@ void Graphe::ajoute_sommet(string etiquette){
 }
 void Graphe::ajoute_arete(Arete& a){
     Arete* sa = &a;
-    aretes.insert(sa);
+    insert_arete(sa);
 }
 void Graphe::ajoute_arete(Sommet s1, Sommet s2, int poids){
     Arete* sa = new Arete(s1,s2,poids);
     GarbageCollector::create(sa);
-    aretes.insert(sa);
+    insert_arete(sa);
 }
 void Graphe::ajoute_arete(string etiquette1, string etiquette2, int poids){
     Arete* sa = new Arete(etiquette1,etiquette2,poids);
     GarbageCollector::create(sa);
+    insert_arete(sa);
+}
+
+void Graphe::insert_arete(Arete *sa){
     aretes.insert(sa);
+    sommets.insert(sa->getS1());
+    sommets.insert(sa->getS2());
 }
 
 vector<Sommet> Graphe::getSommets(){
@@ -52,7 +56,6 @@ vector<Sommet> Graphe::getSommets(){
     for(auto &s : sommets ){
         vs.push_back(*s);
     }
-    
     return vs;
 }
 
@@ -86,14 +89,12 @@ void Graphe::symetrise(){
             if(*s1 == *ss2 and *s2 == *ss1 and poids == poids2){
                 flag = true;
             }
-            
         }
         if(!flag){
             Arete *ar = new Arete(s2->getEtiquette(),s1->getEtiquette(),poids);
             GarbageCollector::create(ar);
             this->ajoute_arete(*ar);
         }
-        
     }   
 }
 void Graphe::kruskal(){

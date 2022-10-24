@@ -19,8 +19,9 @@ class Graphe{
     private:
         set<Sommet*, SommetComp> sommets;
         set<Arete*> aretes;
+        void insert_arete(Arete *sa);
     public:
-        Graphe(vector<Sommet>& ls, vector<Arete>& la);
+        Graphe(vector<Sommet*>& ls, vector<Arete*>& la);
         Graphe(const Graphe& g);
         void ajoute_sommet(Sommet& s);
         void ajoute_sommet(string etiquette);
