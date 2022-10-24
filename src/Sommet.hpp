@@ -10,6 +10,7 @@ class Sommet{
         string etiquette;
     public:
         Sommet(string e);
+        ~Sommet();
         string getEtiquette();
         //Sommet(Sommet e); Je sais pas comment faire
 

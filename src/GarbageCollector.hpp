@@ -10,12 +10,14 @@ using namespace std;
 
 class GarbageCollector{
     private:
-        static map<string, Sommet*> sommets;
+        static set<Sommet*> sommets;
         static set<Arete*> aretes;
         GarbageCollector();
     public:
-        static void create(Sommet* & s);
-        static void create(Arete* & s);
+        static void create(Sommet* s);
+        static void create(Arete* s);
+        static void del(Sommet* s);
+        static void del(Arete* s);
         static void test(){
             cout << "sommets : " << sommets.size() << "; aretes : " << aretes.size() << "\n";
         }

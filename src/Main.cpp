@@ -46,5 +46,7 @@ int main(){
     g1.symetrise();
     cout << "test symetrise : " << g1 <<"\n";
 
+    GarbageCollector::test();
+    
     return 0;
 }

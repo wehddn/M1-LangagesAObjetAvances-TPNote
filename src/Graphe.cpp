@@ -25,6 +25,7 @@ void Graphe::ajoute_sommet(Sommet& s){
 
 void Graphe::ajoute_sommet(string etiquette){
     Sommet* sp = new Sommet(etiquette);
+    GarbageCollector::create(sp);
     sommets.insert(sp);
 }
 void Graphe::ajoute_arete(Arete& a){
@@ -33,10 +34,12 @@ void Graphe::ajoute_arete(Arete& a){
 }
 void Graphe::ajoute_arete(Sommet s1, Sommet s2, int poids){
     Arete* sa = new Arete(s1,s2,poids);
+    GarbageCollector::create(sa);
     aretes.insert(sa);
 }
 void Graphe::ajoute_arete(string etiquette1, string etiquette2, int poids){
     Arete* sa = new Arete(etiquette1,etiquette2,poids);
+    GarbageCollector::create(sa);
     aretes.insert(sa);
 }
 
@@ -54,7 +57,6 @@ vector<Arete> Graphe::getAretes(){
     for(auto &a : aretes ){
         la.push_back(*a);
     }
-    cout << "test21\n";
     return la;
 }
 
@@ -66,7 +68,6 @@ int Graphe::poids(){
     return cpt;
 }
 
-// à régler segmentation fault quand il y a plus d'une arete dans le graphe.
 void Graphe::symetrise(){
     set<Arete*> newAretes = aretes;
     for(auto &it : newAretes ){
@@ -78,7 +79,6 @@ void Graphe::symetrise(){
             Sommet *ss1 = (*it2).getS1();
             Sommet *ss2 = (*it2).getS2();
             int poids2 = (*it2).getPoids();
-            cout << "sym : " << *s1 << endl;
             if(*s1 == *ss2 and *s2 == *ss1 and poids == poids2){
                 flag = true;
             }
@@ -86,19 +86,11 @@ void Graphe::symetrise(){
         }
         if(!flag){
             Arete *ar = new Arete(s2->getEtiquette(),s1->getEtiquette(),poids);
+            GarbageCollector::create(ar);
             this->ajoute_arete(*ar);
         }
         
     }   
-    /*
-    set<Arete*> newAretes = aretes;
-    for(auto &it : newAretes){
-        Sommet *s1 = (*it).getS1();
-        Sommet *s2 = (*it).getS2();
-        int poids = it->getPoids();
-        Arete* sym = new Arete(*s2,*s1,poids);
-        ajoute_arete(*sym);
-    }*/
 }
 void Graphe::kruskal(){
     // TODO 

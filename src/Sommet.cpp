@@ -1,10 +1,19 @@
 #include "Sommet.hpp"
+#include "GarbageCollector.hpp"
+
 #include <cstring>
 
-Sommet::Sommet(string e):etiquette{e} {}
+Sommet::Sommet(string e){
+    etiquette = e;
+    GarbageCollector::create(this);
+}
 
 string Sommet::getEtiquette(){
     return etiquette;
+}
+
+Sommet::~Sommet(){
+    GarbageCollector::del(this);
 }
 
 inline const char * const BoolToString(bool b)
@@ -12,10 +21,7 @@ inline const char * const BoolToString(bool b)
   return b ? "true" : "false";
 }
 
-
 bool operator==(Sommet lhs, Sommet rhs){
-    //cout << "ici" << "\n";
-    //cout << lhs.getEtiquette() << " " << rhs.getEtiquette() << " " << BoolToString(lhs.getEtiquette() == rhs.getEtiquette()) << "\n";
     return lhs.getEtiquette() == rhs.getEtiquette();
 }
 
