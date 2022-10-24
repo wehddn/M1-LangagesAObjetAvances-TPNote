@@ -8,9 +8,16 @@
 #include <set>
 using namespace std;
 
+struct SommetComp
+{
+  bool operator()(Sommet* lhs, Sommet* rhs) const  { 
+    return lhs->getEtiquette()<rhs->getEtiquette();
+  }
+};
+
 class Graphe{
     private:
-        set<Sommet*> sommets;
+        set<Sommet*, SommetComp> sommets;
         set<Arete*> aretes;
     public:
         Graphe(vector<Sommet>& ls, vector<Arete>& la);

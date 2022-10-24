@@ -14,6 +14,7 @@ int main(){
     
     Arete a1{s1, s2, 1};
     Arete a11{s1, s2, 1};
+
     Arete a2{s3,s4,3};
     Arete a3{"s3", "s4", 2};
     
@@ -31,7 +32,7 @@ int main(){
 
     cout << "Test aretes : \n";
     cout << "test << : " << a1 <<"\n";
-    cout << "test getS1 : " << a2.getS1().getEtiquette() <<"\n";
+    cout << "test getS1 : " << a3.getS1()->getEtiquette() <<"\n";
     cout << "test getPoids : " << a2.getPoids() << "\n"; 
     cout << "\n";
 
@@ -41,11 +42,9 @@ int main(){
     g1.ajoute_sommet(s4);
     cout << "test ajoute_sommet : " << g1 <<"\n";
     g1.ajoute_sommet("s5");
-    cout << "test ajoute_sommet : " << g1 <<"\n";
+    cout << "test ajoute_sommet : " << g1 <<"\n\n";
     g1.symetrise();
- //   cout << "test symetrise : " << g1 <<"\n";
-
-    GarbageCollector::test();
+    cout << "test symetrise : " << g1 <<"\n";
 
     return 0;
 }
