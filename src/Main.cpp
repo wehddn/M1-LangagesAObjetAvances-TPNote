@@ -49,7 +49,7 @@ int main(){
     cout << "test ajoute_sommet : " << g1 <<"\n";
     g1.ajoute_arete("s1", "s5", 3);
     cout << "test ajoute_arete : " << g1 <<"\n";
-    //g1.symetrise();
+    g1.symetrise();
     cout << "test symetrise : " << g1 <<"\n";
 
     GarbageCollector::test();

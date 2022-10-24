@@ -12,7 +12,7 @@ Graphe::Graphe(vector<Sommet*>& vs, vector<Arete*>& va){
     }
 
     for(auto &a : va ){
-        aretes.insert(a);
+        aretes.push_back(a);
     }
 }
 
@@ -46,7 +46,7 @@ void Graphe::ajoute_arete(string etiquette1, string etiquette2, int poids){
 }
 
 void Graphe::insert_arete(Arete *sa){
-    aretes.insert(sa);
+    aretes.push_back(sa);
     sommets.insert(sa->getS1());
     sommets.insert(sa->getS2());
 }
@@ -69,14 +69,14 @@ vector<Arete> Graphe::getAretes(){
 
 int Graphe::poids(){
     int cpt = 0;
-    for(set<Arete*>::iterator it = aretes.begin(); it != aretes.end(); it++){
+    for(vector<Arete*>::iterator it = aretes.begin(); it != aretes.end(); it++){
 		cpt+= (*it)->getPoids();
 	}
     return cpt;
 }
 
 void Graphe::symetrise(){
-    set<Arete*> newAretes = aretes;
+    vector<Arete*> newAretes = aretes;
     for(auto &it : newAretes ){
         Sommet *s1 = (*it).getS1();
         Sommet *s2 = (*it).getS2();

@@ -18,7 +18,7 @@ struct SommetComp
 class Graphe{
     private:
         set<Sommet*, SommetComp> sommets;
-        set<Arete*> aretes;
+        vector<Arete*> aretes;
         void insert_arete(Arete *sa);
     public:
         Graphe(vector<Sommet*>& ls, vector<Arete*>& la);
