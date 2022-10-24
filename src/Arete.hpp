@@ -19,7 +19,8 @@ class Arete{
         ~Arete();
         Sommet* getS1();
         Sommet* getS2();
-        int getPoids();     
+        int getPoids();
+        void setPoids(int p);
 };
 
 std::ostream& operator<< (std::ostream &out, Arete &arete);
