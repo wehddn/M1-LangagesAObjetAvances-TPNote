@@ -32,8 +32,7 @@ class Graphe{
         vector<Arete> getAretes();
         int poids();
         void symetrise();
-        void kruskal(); // TODO à la fin
-        // Graphe(Graphe g);
+        vector<Arete*> kruskal();
 };
 
 std::ostream& operator<< (std::ostream &out, Graphe &Graphe);

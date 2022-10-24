@@ -97,7 +97,7 @@ void Graphe::symetrise(){
         }
     }   
 }
-void Graphe::kruskal(){
+vector<Arete*> Graphe::kruskal(){
     vector<Arete*> a{};
     int cpt = 1;
     for(auto &it : sommets){
@@ -108,13 +108,20 @@ void Graphe::kruskal(){
     {
         return lhs->getPoids() < rhs->getPoids();
     }); 
+
     for(auto &it : aretes){
         if((*it).getS1()->getMarquage() != (*it).getS2()->getMarquage()){
-            a.push_back(*it);
-            
+            a.push_back(it);
+            int m1 = (*it).getS1()->getMarquage();
+            int m2 = (*it).getS2()->getMarquage();
+            for(auto &its : sommets){
+                if ((*its).getMarquage() == m2)
+                    (*its).setMarquage(m1);
+            }
         }
     }
     
+    return a;
     
 } 
 
