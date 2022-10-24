@@ -23,6 +23,8 @@ class Arete{
         void setPoids(int p);
 };
 
+bool operator<(Arete lhs, Arete rhs);
+
 std::ostream& operator<< (std::ostream &out, Arete &arete);
 
 #endif

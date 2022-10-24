@@ -98,7 +98,24 @@ void Graphe::symetrise(){
     }   
 }
 void Graphe::kruskal(){
-    // TODO 
+    vector<Arete*> a{};
+    int cpt = 1;
+    for(auto &it : sommets){
+        (*it).setMarquage(cpt);
+        cpt++;
+    }
+    sort( aretes.begin( ), aretes.end( ), [ ]( Arete*& lhs, Arete*& rhs )
+    {
+        return lhs->getPoids() < rhs->getPoids();
+    }); 
+    for(auto &it : aretes){
+        if((*it).getS1()->getMarquage() != (*it).getS2()->getMarquage()){
+            a.push_back(*it);
+            
+        }
+    }
+    
+    
 } 
 
 std::ostream& operator<< (std::ostream &out, Graphe &graphe)

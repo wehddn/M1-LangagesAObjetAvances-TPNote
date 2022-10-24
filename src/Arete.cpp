@@ -42,6 +42,10 @@ void Arete::setPoids(int p){
     poids = p;
 }
 
+bool operator<(Arete lhs, Arete rhs){
+    return lhs.getPoids() < rhs.getPoids();
+}
+
 std::ostream& operator<< (std::ostream &out, Arete &arete)
 {
     out << arete.getS1()->getEtiquette() << " - " << arete.getS2()->getEtiquette() << ", "<< arete.getPoids(); 

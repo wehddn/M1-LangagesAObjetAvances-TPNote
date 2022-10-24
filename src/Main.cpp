@@ -51,7 +51,8 @@ int main(){
     cout << "test ajoute_arete : " << g1 <<"\n";
     g1.symetrise();
     cout << "test symetrise : " << g1 <<"\n";
-
+    g1.kruskal();
+    cout << "test kruskal : " << g1 <<"\n";
     GarbageCollector::test();
 
     return 0;

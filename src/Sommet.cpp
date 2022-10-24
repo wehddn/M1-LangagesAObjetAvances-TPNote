@@ -16,6 +16,13 @@ string Sommet::getEtiquette(){
     return etiquette;
 }
 
+int Sommet::getMarquage(){
+    return marquage;
+}
+
+void Sommet::setMarquage(int x){
+    this->marquage = x;
+}
 Sommet::~Sommet(){
     GarbageCollector::del(this);
 }

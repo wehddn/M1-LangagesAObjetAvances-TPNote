@@ -8,11 +8,14 @@ using namespace std;
 class Sommet{
     private:
         string etiquette;
+        int marquage;
     public:
         Sommet(string e);
         Sommet(const Sommet& s);
         ~Sommet();
         string getEtiquette();
+        int getMarquage();
+        void setMarquage(int x);
 
 };
 bool operator==(Sommet lhs, Sommet rhs);
