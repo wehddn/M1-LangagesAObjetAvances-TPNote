@@ -12,7 +12,13 @@ Graphe::Graphe(vector<Sommet*>& vs, vector<Arete*>& va){
     }
 
     for(auto &a : va ){
-        aretes.push_back(a);
+        insert_arete(a);
+    }
+}
+
+Graphe::Graphe(vector<Arete*>& va){
+    for(auto &a : va ){
+        insert_arete(a);
     }
 }
 
@@ -34,7 +40,7 @@ void Graphe::ajoute_arete(Arete& a){
     Arete* sa = &a;
     insert_arete(sa);
 }
-void Graphe::ajoute_arete(Sommet s1, Sommet s2, int poids){
+void Graphe::ajoute_arete(Sommet& s1, Sommet& s2, int poids){
     Arete* sa = new Arete(s1,s2,poids);
     GarbageCollector::create(sa);
     insert_arete(sa);
@@ -97,7 +103,8 @@ void Graphe::symetrise(){
         }
     }   
 }
-vector<Arete*> Graphe::kruskal(){
+
+Graphe Graphe::kruskal(){
     vector<Arete*> a{};
     int cpt = 1;
     for(auto &it : sommets){
@@ -120,8 +127,8 @@ vector<Arete*> Graphe::kruskal(){
             }
         }
     }
-    
-    return a;
+    Graphe g2{a};
+    return g2;
     
 } 
 
