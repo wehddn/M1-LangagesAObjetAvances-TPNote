@@ -28,42 +28,42 @@ int main(){
     Graphe g1{ls, la};
     Graphe g1copy{g1};
     
-    cout << "\n";
+    cout << endl;
     cout << "Test sommets : \n";
-    cout << "test << de s1 : " << s1 <<"\n";
-    cout << "test << pour une copy de s1 : " << s1copy <<"\n";
-    cout << "test getEtiquette de s2 : " <<s2.getEtiquette() <<"\n";
-    cout << "\n";
+    cout << "test << de s1 : " << s1 << endl;
+    cout << "test << pour une copy de s1 : " << s1copy << endl;
+    cout << "test getEtiquette de s2 : " <<s2.getEtiquette() << endl;
+    cout << endl;
 
     cout << "Test aretes : \n";
-    cout << "test << de a1, créée à partir de deux sommets et d'un poids : " << a1 <<"\n";
-    cout << "test << de a2, créée à partir de deux étiquettes et d'un poids : " << a2 <<"\n";
-    cout << "test << pour une copy de a1 : " << a1copy <<"\n";
-    cout << "test getS1 : " << a1.getS1()->getEtiquette() <<"\n";
-    cout << "test getPoids : " << a1.getPoids() << "\n"; 
-    cout << "test des arêtes avec les mêmes sommets : " << "\n";
-    cout << "avant de modifier le poids du sommet s1 : " << a1 << "; " <<  a4 << "\n";
-    cout << "\n";
+    cout << "test << de a1, créée à partir de deux sommets et d'un poids : " << a1 << endl;
+    cout << "test << de a2, créée à partir de deux étiquettes et d'un poids : " << a2 << endl;
+    cout << "test << pour une copy de a1 : " << a1copy << endl;
+    cout << "test getS1 : " << a1.getS1()->getEtiquette() << endl;
+    cout << "test getPoids : " << a1.getPoids() << endl; 
+    cout << "test des arêtes avec les mêmes sommets : \n";
+    cout << "avant de modifier le poids du sommet s1 : " << a1 << "; " <<  a4 << endl;
+    cout << endl;
 
     cout << "Test graphe : \n";
-    cout << "test << : " << g1 <<"\n";
-    cout << "test << pour une copy de g1 : " << g1copy <<"\n";
-    cout << "test poids : " << g1.poids() << "\n";
+    cout << "test << : " << g1 << endl;
+    cout << "test << pour une copy de g1 : " << g1copy << endl;
+    cout << "test poids : " << g1.poids() << endl;
     g1.ajoute_sommet(s5);
-    cout << "test ajoute_sommet à partir d'un sommet existant : " << g1 <<"\n";
+    cout << "test ajoute_sommet à partir d'un sommet existant : " << g1 << endl;
     g1.ajoute_sommet("s6");
-    cout << "test ajoute_sommet à partir d'une étiquette : " << g1 <<"\n";
+    cout << "test ajoute_sommet à partir d'une étiquette : " << g1 << endl;
     g1.ajoute_arete(a5);
-    cout << "\ntest ajoute_arete à partir d'une arête existante : " << g1 <<"\n";
+    cout << "\ntest ajoute_arete à partir d'une arête existante : " << g1 << endl;
     g1.ajoute_arete(s1, s4, 1);
-    cout << "test ajoute_arete à partir de deux sommets existants et d'un poids: " << g1 <<"\n";
+    cout << "test ajoute_arete à partir de deux sommets existants et d'un poids: " << g1 << endl;
     g1.ajoute_arete("s1", "s5", 3);
-    cout << "test ajoute_arete à partir de deux étiquettes et d'un poids " << g1 <<"\n";
-    cout << "\ng1qcopy : " << g1copy << "\n";
+    cout << "test ajoute_arete à partir de deux étiquettes et d'un poids " << g1 << endl;
+    cout << "\ng1qcopy : " << g1copy << endl;
     g1copy.symetrise();
-    cout << "test symetrise : " << g1 << "\n";
+    cout << "test symetrise : " << g1 << endl;
     Graphe g2 = g1copy.kruskal();
-    cout << "test kruskal : " << g2 << "\n";
+    cout << "test kruskal : " << g2 << endl;
 
     return 0;
 }
