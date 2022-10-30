@@ -23,6 +23,7 @@ int Sommet::getMarquage(){
 void Sommet::setMarquage(int x){
     this->marquage = x;
 }
+
 Sommet::~Sommet(){
     GarbageCollector::del(this);
 }

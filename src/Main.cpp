@@ -68,11 +68,9 @@ int main(){
     cout << "\ntest que 2 graphes ayant un sommet commun doivent se référer au même sommet : " << endl;
     cout << "Le sommet s1 dans les graphes g1 et g2 doit avoir la même adresse : " << g1.getAretes().at(0).getS1() << " " << g2.getAretes().at(0).getS1() << endl; 
 
-    cout << "\ntest que 2 graphes ayant un sommet commun doivent se référer au même sommet : " << endl;
-    cout << "L'arête s1 dans les graphes g1 et g2 doit avoir le même poids : " << g1.getAretes().at(0).getPoids() << ", " << g2.getAretes().at(0).getPoids() << endl; 
+    cout << "\nL'arête s1 dans les graphes g1 et g2 doit avoir le même poids : " << g1.getAretes().at(0).getPoids() << ", " << g2.getAretes().at(0).getPoids() << endl; 
     a1.setPoids(3);
     cout << "Le poids d'arête s1 après la modification : " << g1.getAretes().at(0).getPoids() << ", " << g2.getAretes().at(0).getPoids() << endl; 
-
 
     return 0;
 }
