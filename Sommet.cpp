@@ -20,8 +20,8 @@ int Sommet::getMarquage(){
     return marquage;
 }
 
-void Sommet::setMarquage(int x){
-    this->marquage = x;
+void Sommet::setMarquage(int m){
+    this->marquage = m;
 }
 
 Sommet::~Sommet(){

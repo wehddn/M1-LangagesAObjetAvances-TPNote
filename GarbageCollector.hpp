@@ -16,10 +16,10 @@ class GarbageCollector{
         GarbageCollector();
         ~GarbageCollector();
         static void create(Sommet* s);
-        static void create(Arete* s);
+        static void create(Arete* a);
         static void del(Sommet* s);
-        static void del(Arete* s);
-        static void test(){
+        static void del(Arete* a);
+        static void testShow(){
             cout << "sommets : " << sommets.size() << "; aretes : " << aretes.size() << "\n";
         }
 };

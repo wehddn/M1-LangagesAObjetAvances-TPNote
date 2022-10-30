@@ -1,37 +1,66 @@
 @startuml diagram
 
 class Graphe{
-    -list<sommet>
-    -list<arete>
-    +graphe(list<sommet>, list<arete>)
-    +graphe(graphe)
-    +ajoute_sommet(sommet s)
-    +ajoute_sommet(string etiquette)
-    +ajoute_arete(arete a)
-    +ajoute_arete(sommet s1, sommet s2, int poids)
-    +ajoute_arete(string etiquette1, string etiquette2, int poids)
-    +int poids()
-    +symetrise()
-    +kruskal()
+    struct SommetComp
+    -set<Sommet, SommetComp> sommets;
+    -vector<Arete> aretes;
+    -void insert_arete(Arete sa);
+    +Graphe(vector<Sommet> ls, vector<Arete> la);
+    +Graphe(vector<Arete> la);
+    +Graphe(const Graphe g);
+    +void ajoute_sommet(Sommet s);
+    +void ajoute_sommet(string etiquette);
+    +void ajoute_arete(Arete a);
+    +void ajoute_arete(Sommet s1, Sommet s2, int poids);
+    +void ajoute_arete(string etiquette1, string etiquette2, int poids);
+    +vector<Sommet> getSommets();
+    +vector<Arete> getAretes();
+    +int poids();
+    +void symetrise();
+    +Graphe kruskal();
 }
 
 class Sommet{
-    -string etiquette 
-    +sommet(etiquette e)
-    +sommet(sommet)
+    -string etiquette
+    -int marquage 
+    +Sommet(string e);
+    +Sommet(Sommet s);
+    +~Sommet();
+    +string getEtiquette();
+    +int getMarquage();
+    +void setMarquage(int m);
 }
 
 class Arete{
-    -int poids
-    -sommet s1
-    -sommet s2
-    +arete(etiquette e1, etiquette e2, poids p)  
-    +arete(sommet s1, sommet s2, poids p)
-    +arete(arete)
+    -Sommet sommet1;
+    -Sommet sommet2;
+    -int poids;
+    +Arete(string s1, string s2, int p);
+    +Arete(Sommet s1, Sommet s2, int p);
+    +Arete(Arete a);
+    +~Arete();
+    +Sommet getS1();
+    +Sommet getS2();
+    +int getPoids();
+    +void setPoids(int p);   
 }
 
 class GC{
-
+    {static} set<Sommet*> sommets;
+    {static} set<Arete*> aretes;
+    +GarbageCollector();
+    +~GarbageCollector();
+    {static} void create(Sommet s);
+    {static} void create(Arete a);
+    {static} void del(Sommet s);
+    {static} void del(Arete a);
+    {static} void testShow()
 }
+
+Graphe "0..*" o-- "1..*" Sommet
+Graphe "0..*" o-- "1..*" Arete
+Arete "0..*" o-- "1..2" Sommet
+GC <.. Sommet : create, delete (del)
+GC <.. Arete : create, delete (del)
 
 @enduml

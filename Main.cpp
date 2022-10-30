@@ -77,13 +77,13 @@ int main(){
 
     cout << "\ntest des constructions et destructions : \n";
     cout << "Nombre courrant de sommets et d'arêtes : \n";
-    GarbageCollector::test();
+    GarbageCollector::testShow();
     cout << "Nombre de sommets et d'arêtes après la suppression d'un arête " << *a0 << " :\n";
     delete(a0);
-    GarbageCollector::test();
+    GarbageCollector::testShow();
     cout << "Après la suppression d'un sommet " << *s0 << " (arêtes " << *a00 << " doit être supprimé) :\n";
     delete(s0);
-    GarbageCollector::test();
+    GarbageCollector::testShow();
 
     return 0;
 }

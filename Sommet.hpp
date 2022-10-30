@@ -15,7 +15,7 @@ class Sommet{
         ~Sommet();
         string getEtiquette();
         int getMarquage();
-        void setMarquage(int x);
+        void setMarquage(int m);
 
 };
 bool operator==(Sommet lhs, Sommet rhs);
