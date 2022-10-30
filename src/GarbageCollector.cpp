@@ -26,7 +26,15 @@ void GarbageCollector::create(Arete* a){
 } 
 
 void GarbageCollector::del(Sommet* s){
+    if(!aretes.empty()){
+        set<Arete*> newAretes = aretes;
+        for(auto &a : newAretes ){
+            if (a->getS1() == s || a->getS2() == s)
+                aretes.erase(a);
+        }
+    }
     sommets.erase(s);
+
 }
 
 void GarbageCollector::del(Arete* a){

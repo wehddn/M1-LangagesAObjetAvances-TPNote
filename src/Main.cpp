@@ -7,6 +7,7 @@
 using namespace std;
 int main(){
     GarbageCollector gc;
+    Sommet* s0 = new Sommet("s0");
     Sommet s1{"s1"};
     Sommet s2{"s2"};
     Sommet s3{"s3"};
@@ -14,6 +15,8 @@ int main(){
     Sommet s5{"s5"};
     Sommet s1copy{s1};
     
+    Arete* a0 = new Arete(*s0, *s0, 1);
+    Arete* a00 = new Arete(*s0, *s0, 1);
     Arete a1{s1, s2, 1};
     Arete a11{s1, s2, 1};
     Arete a2{"s3","s4",3};
@@ -27,7 +30,7 @@ int main(){
 
     Graphe g1{ls, la};
     Graphe g1copy{g1};
-    
+
     cout << endl;
     cout << "Test sommets : \n";
     cout << "test << de s1 : " << s1 << endl;
@@ -71,6 +74,16 @@ int main(){
     cout << "\nL'arête s1 dans les graphes g1 et g2 doit avoir le même poids : " << g1.getAretes().at(0).getPoids() << ", " << g2.getAretes().at(0).getPoids() << endl; 
     a1.setPoids(3);
     cout << "Le poids d'arête s1 après la modification : " << g1.getAretes().at(0).getPoids() << ", " << g2.getAretes().at(0).getPoids() << endl; 
+
+    cout << "\ntest des constructions et destructions : \n";
+    cout << "Nombre courrant de sommets et d'arêtes : \n";
+    GarbageCollector::test();
+    cout << "Nombre de sommets et d'arêtes après la suppression d'un arête " << *a0 << " :\n";
+    delete(a0);
+    GarbageCollector::test();
+    cout << "Après la suppression d'un sommet " << *s0 << " (arêtes " << *a00 << " doit être supprimé) :\n";
+    delete(s0);
+    GarbageCollector::test();
 
     return 0;
 }
