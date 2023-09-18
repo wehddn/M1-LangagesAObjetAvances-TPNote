@@ -6,6 +6,9 @@ Une description complète du projet, y compris les règles de graphes et la list
 
 [Un diagramme UML](docs/Diagram.puml) au format PlantUML a été créé pour illustrer plus en détail la structure du projet.
 
+## Installation
+Vous devez avoir installé C++
+
 ## Utilisation
 ### Pour lancer l'application :
 make
